@@ -28,20 +28,20 @@ function shuffleArrayDurstenfel(array, inPlace=false) {
 
 
 function adjustNumberSoZeroDoesNotConfictWithSum (value){
-  return value===10 ? 1 : value
+  return value===10 ? 1 : value;
 }
 
 
 function findHourColors () {
-  var outputs=[]
-  var sum=0
-  var hours = getTimeInHours()
-  var useTheseNumbers
-  var continueLoop=false
+  var outputs=[];
+  var sum=0;
+  var hours = getTimeInHours();
+  var useTheseNumbers;
+  var continueLoop=false;
   minuteWhileLoop:
     while (continueLoop===false){
-      outputs=[]
-      sum=0
+      outputs=[];
+      sum=0;
       useTheseNumbers=shuffleArrayDurstenfel(fibSequence)
       for (let i=0; i<=4; i++){
         outputs.push(useTheseNumbers.pop())
@@ -57,9 +57,9 @@ function findHourColors () {
 
 
 function findMinColors () {
-  var outputs=[]
-  var sum=0
-  var minutes = getTimeInMin()
+  var outputs=[];
+  var sum=0;
+  var minutes = getTimeInMin();
   if (minutes===0){
       return []
   }
@@ -103,17 +103,14 @@ function MixColors () {
 }
 
 
-
 function returnSumOfArray (array){
   return array.reduce((sum, currentValue) =>{return sum+=currentValue})
 }
 
 
-
 function getRandomInt (lower, upper) {
   return Math.floor(Math.random()*(upper-lower+1)+lower)
 }
-
 
 
 function getTimeInMin(){
@@ -128,7 +125,6 @@ function getTimeInHours(){
   var time= new Date()
   var hours= time.getHours()
 
-
   if (hours > 12) {
     hours -= 12;
   } else if (hours === 0) {
@@ -139,7 +135,6 @@ function getTimeInHours(){
 
 function updateHtmlClock (colorArray){
   try {
-        
     keys=Object.keys(colorArray)
     keys.forEach( (key) => {
       document.getElementById('Value' + key).style = "background: " +  colorArray[key] + ';'
@@ -153,7 +148,6 @@ function updateHtmlClock (colorArray){
 function main() {
   loopClockUpdates ()
   createEventHandlers()
-
 }
 function loopClockUpdates (){
   document.getElementById('reference').innerText = Date()
@@ -169,10 +163,12 @@ function loopClockUpdates (){
   setTimeout(loopClockUpdates, 500); //loop every x milliseconds, use setTimeout so next one will not execute until funished https://stackoverflow.com/questions/7188145/call-a-javascript-function-every-5-seconds-continuously
 }
 
+
 function testingTHISelement(thisElement){
   console.log(thisElement)
   thisElement.innerText="yes";
 }
+
 
 function createEventHandlers(){
   //https://www.w3schools.com/js/js_htmldom_eventlistener.asp
@@ -180,6 +176,7 @@ function createEventHandlers(){
   document.getElementById("instructions").addEventListener("mousedown", function (){toggleElementVisiblity('footer')} ); 
   document.getElementById("blackoutBackground").addEventListener("mousedown", blackOutBackground); 
 }
+
 
 function toggleClock(){
   var currentElement=document.getElementById('reference')
@@ -192,6 +189,7 @@ function toggleClock(){
   }
 }
 
+
 function toggleElementVisiblity(element){
   var currentElement=document.getElementById(element)
   console.log(currentElement.style.display)
@@ -203,12 +201,12 @@ function toggleElementVisiblity(element){
   }
 }
 
+
 function  blackOutBackground (){
   var currentElement=document.getElementById('body')
   var currentElementStyle=currentElement.style['background-color']
 
   console.log(currentElementStyle)
-
   if (currentElementStyle=='black'){
     currentElement.style ="background: white"
   }
@@ -219,9 +217,6 @@ function  blackOutBackground (){
     currentElement.style ="background: black"
   }
 }
-//tests
-// console.log(returnSumOfArray([1,2,3,4,5]))
 
-// console.log(getRandomInt(2,5))
 main()
 
