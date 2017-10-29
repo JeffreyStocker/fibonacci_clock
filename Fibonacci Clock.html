@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title> Fibonacci Clock </title>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<script src="clock.js"></script>
+
+<script>
+</script>
+<body id="body" onload="main()" class="body">
+    <header class='header'>
+        <ul class='headerList'>
+            <li><span id='showClock'>Show Clock</span></li>
+            <li id="instructions">Instructions</li>
+            <li id="blackoutBackground">Blackout Background</li>
+            <li style="display: none" onClick='testingTHISelement(this)'>testing</li>
+            <li></li>
+        </ul>
+    </header>
+
+
+    <div id='reference'  style="display: none"></div>
+    <br>
+    <div id="FibClock" class="mainBox">
+
+        <section id="containerForTwoandOneAndThree" class='container'>
+            <section id='ContainerForTwoandOne' class='inline'>
+                
+                <div id='Value2' class='border  two'></div>
+                
+                <div id='ContainerForOnes' class='container'>
+                    <div id= 'Value1' class='border one'></div>
+                    <div id= 'Value10' class='border one'></div>
+                </div>
+            </section>
+            <div id='Value3' class='border three'></div>
+        </section>
+    <aside id="Value5" class='five border inline'></aside>
+    </div>
+    <br>
+<footer id="footer" style="display: none">
+    <p> How to read this clock! </p>
+    <p> Realize that each square is worth a value. (hint, that where the Fibonacci comes into play!) <br> <b> <em>Small</em>: 1, <em>Medium</em>: 2, <em>Large</em>: 3, <em>Huge</em>: 5 </b>
+    <br><br>
+    Each color represents either the current hour, or current minute, or both!
+    <br>
+    Red: hour, Green: minutes, Blue: hours and minutes
+    <br><br>
+    To find the current hour, simply add up each of the blocks with the colors RED or BLUE
+    <br>
+    To find the current minute, add up each of the blocks with the colors GREEN or BLUE, then multiply by 5
+</footer>
+</body >
+</html>
